@@ -1,14 +1,14 @@
 <?php
-    session_start();
-    if(!$_SESSION)
-    {
-        header("Location:index.php");
-    }
+session_start();
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,16 +42,19 @@
         <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
             <div class="nano">
                 <div class="nano-content">
-                    <div class="logo"><a href="#"><!-- <img src="assets/images/logo.png" alt="" /> --><span>WELCOME</span></a></div>
+                    <div class="logo"><!-- <img src="assets/images/logo.png" alt="" /> --><span>Welcome</span></a></div>
                     <ul>
                         <li class="label">Main</li>
                         <li class="active"><a class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard</a>
-                    <div class="logo"><a href="index.html"><!-- <img src="assets/images/logo.png" alt="" /> --><span>WELCOME</span></a></div>
-                    <ul>
-                        <li class="label">Main</li>
-                        <li class="active"><a class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard</a>
+                            <!-- <ul>
+                                <li><a href="index.html">Dashboard 1</a></li>
+                                <li><a href="index1.html">Dashboard 2</a></li>
+                                
+                                
+                                
+                            </ul> -->
                         </li>
-
+                        <li><a href="index.html"><i class="ti-close"></i>LOGOUT</a></li>
                         
                 </div>
             </div>
@@ -62,7 +65,6 @@
         <div class="header">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-6">
                     <div class="col-lg-12">
                         <div class="float-left">
                             <div class="hamburger sidebar-toggle">
@@ -88,7 +90,7 @@
                     <div class="col-lg-8 p-r-0 title-margin-right">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>Hello, <span>Welcome Here</span></h1>
+                                <h1>Hello, <span><?php echo $_SESSION['user']; ?></span></h1>
                             </div>
                         </div>
                     </div>
@@ -97,7 +99,6 @@
                         <div class="page-header">
                             <div class="page-title">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Login</a></li>
                                     <li class="breadcrumb-item active">Dashboard</li>
                                 </ol>
                             </div>
@@ -116,122 +117,35 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered">
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>Id</th>
                                                     <th>Name</th>
                                                     <th>Enrollment No</th>
-                                                    <th>Attendance 1</th>
-                                                    <th>Attendance 2</th>
-                                                    <th>Attendance 3</th>
-                                                    <th>Attendance 4</th>
+                                                    <th>Overall</th>
                                                     <th>PTT 1</th>
                                                     <th>PTT 2</th>
                                                     <th>PST</th>
-                                                    <th>MSBTE RESULT</th>
-                                                    <th>Status</th>
                                                     
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-<?php
-    require_once('connection.php');
-    $gfm = $_SESSION['user'];
-    $sql = "select * from student where gfm='$gfm'";
-    $results = mysqli_query($con,$sql) or die(mysqli_error($con));
-    while($row = mysqli_fetch_array($results))
-    {
-        echo "<td>".$row['id']."</td>";
-        if(!empty($row['name']))
-        {
-            echo "<td class='text-center'>".$row['name']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px"></td>';
-        }
-        if(!empty($row['enroll_no']))
-        {
-            echo "<td class='text-center'>".$row['enroll_no']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px"></td>';
-        }
-        if(!empty($row['attend1']))
-        {
-            echo "<td class='text-center'>".$row['attend1']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px"></td>';
-        }
-        if(!empty($row['attend2']))
-        {
-            echo "<td class='text-center'>".$row['attend2']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px"></td>';
-        }        
-        if(!empty($row['attend3']))
-        {
-            echo "<td class='text-center'>".$row['attend3']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px"></td>';
-        }        
-        if(!empty($row['attend4']))
-        {
-            echo "<td class='text-center'>".$row['attend4']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px"></td>';
-        }        
+                                        <?php
+                                        require_once('connection.php');
+                                        $sql = "SELECT * from student";
+                                        $result= mysqli_query($con,$sql);
+                                        while ($row = mysqli_fetch_array($result)) {
+                                        echo    '<tr>
+                                                    <td>'.$row['name'].'</td>
+                                                    <td>'.$row['enroll_no'].'</td>
+                                                    <td>'.$row['overall'].'</td>
+                                                    <td>'.$row['ptt1'].'</td>
+                                                    <td>'.$row['ptt2'].'</td>
+                                                    <td>'.$row['pst'].'</td>
+                                                </tr>';
+                                        }
+                                        ?>
 
-        if(!empty($row['ptt1']))
-        {
-            echo "<td class='text-center'>".$row['ptt1']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px"></td>';
-        }        
-        if(!empty($row['ptt2']))
-        {
-            echo "<td class='text-center'>".$row['ptt2']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px"></td>';
-        }      
-        if(!empty($row['pst']))
-        {
-            echo "<td class='text-center'>".$row['pst']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px"></td>';
-        }      
-        if(!empty($row['m_result']))
-        {
-            echo "<td class='text-center'>".$row['m_result']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px"></td>';
-        } 
-        if(empty($row['name']) || empty($row['enroll_no']) || empty($row['attend1']) || empty($row['attend2']) ||empty($row['attend3']) || empty($row['attend4']) || empty($row['ptt1']) || empty($row['ptt2']) || empty($row['pst']) || empty($row['m_result']))
-        {
-            echo '<td><a href="updateStudent.php?enroll_no='.$row["enroll_no"].'"><p class="btn btn-primary">Update</p></a></td>';
-        }
-    }//end of while loop
-?>
                                             </tbody>
                                         </table>
                                     </div>

@@ -1,6 +1,7 @@
 <?php
 	if(isset($_POST['username']) && isset($_POST['password']))
 	{
+			session_start();
 			require_once('connection.php');
 			$username = $_POST['username'];
 			$password = $_POST['password'];
@@ -9,8 +10,8 @@
 			$results = mysqli_query($con,$sql) or die(mysqli_error($con));
 			if(mysqli_num_rows($results)>0)
 			{
-					header("Location:sDashboard.php");	//student dashboard
 					$_SESSION['user'] = $username;
+					header("Location:sDashboard.php");	//student dashboard
 			}
 			else
 			{
@@ -21,13 +22,15 @@
 					$row = mysqli_fetch_array($results);
 					if(strcmp($row['type'],"cordinator") == 0)
 					{
-						header("Location:cDashboard.php");	//cordinator dashboard
 						$_SESSION['user'] = $username;
+						header("Location:cord-dashboard.php");	//cordinator dashboard
+					
 					}
 					else
 					{	
-						header("Location:gDashboard.php");	//gfm dashboard
 						$_SESSION['user'] = $username;
+						header("Location:gfm-dashboard.php");	//gfm dashboard
+						
 					}
 				}
 				else
