@@ -1,19 +1,26 @@
 $(document).ready(function(){
 	$.ajax({
-		url: "http://localhost/chartjs/data.php",
+		url: "http://localhost/GFM/data.php",
 		method: "GET",
 		success: function(data) {
 			console.log(data);
 			var attendance = [];
 			var value = [];
+			for (var i in data){
+				attendance.push("Attendance1");
+				attendance.push("Attendance2");
+				attendance.push("Attendance3");
+				attendance.push("Attendance4");
+				value.push(data[i].attend1);
+				value.push(data[i].attend2);
+				value.push(data[i].attend3);
+				value.push(data[i].attend4);
+				console.log(value);
 
-			for(var i in data) {
-				attendance.push("Attendance" + i);
-				value.push(data[i].score);
 			}
 
 			var chartdata = {
-				labels: Attendance,
+				labels: attendance,
 				datasets : [
 					{
 						label: 'Attendance',
@@ -22,19 +29,37 @@ $(document).ready(function(){
 						hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
 						hoverBorderColor: 'rgba(200, 200, 200, 1)',
 						data: value
+
 					}
 				]
+
+
 			};
 
 			var ctx = $("#mycanvas");
 
-			var barGraph = new Chart(ctx, {
+			var barGraph = new Chart(ctx,{
 				type: 'bar',
 				data: chartdata
+
+
 			});
 		},
+
+
 		error: function(data) {
 			console.log(data);
-		}
+		},
+
+		options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: false
+                }
+            }]
+        }
+    }
 	});
 });
+
