@@ -151,7 +151,7 @@
         }
         else
         {
-            echo '<td><input type="text" style="width:80px"></td>';
+            echo '<td><input type="text" style="width:80px" disabled></td>';
         }
         if(!empty($row['enroll_no']))
         {
@@ -159,7 +159,7 @@
         }
         else
         {
-            echo '<td><input type="text" style="width:80px"></td>';
+            echo '<td><input type="text" style="width:80px" disabled></td>';
         }
         if(!empty($row['attend1']))
         {
@@ -167,7 +167,7 @@
         }
         else
         {
-            echo '<td><input type="text" style="width:80px"></td>';
+            echo '<td><input type="text" style="width:80px" disabled></td>';
         }
         if(!empty($row['attend2']))
         {
@@ -175,7 +175,7 @@
         }
         else
         {
-            echo '<td><input type="text" style="width:80px"></td>';
+            echo '<td><input type="text" style="width:80px" disabled></td>';
         }        
         if(!empty($row['attend3']))
         {
@@ -183,7 +183,7 @@
         }
         else
         {
-            echo '<td><input type="text" style="width:80px"></td>';
+            echo '<td><input type="text" style="width:80px" disabled></td>';
         }        
         if(!empty($row['attend4']))
         {
@@ -191,7 +191,7 @@
         }
         else
         {
-            echo '<td><input type="text" style="width:80px"></td>';
+            echo '<td><input type="text" style="width:80px" disabled></td>';
         }        
 
         if(!empty($row['ptt1']))
@@ -200,7 +200,7 @@
         }
         else
         {
-            echo '<td><input type="text" style="width:80px"></td>';
+            echo '<td><input type="text" style="width:80px" disabled></td>';
         }        
         if(!empty($row['ptt2']))
         {
@@ -208,7 +208,7 @@
         }
         else
         {
-            echo '<td><input type="text" style="width:80px"></td>';
+            echo '<td><input type="text" style="width:80px" disabled></td>';
         }      
         if(!empty($row['pst']))
         {
@@ -216,7 +216,7 @@
         }
         else
         {
-            echo '<td><input type="text" style="width:80px"></td>';
+            echo '<td><input type="text" style="width:80px" disabled></td>';
         }      
         if(!empty($row['m_result']))
         {
@@ -224,11 +224,11 @@
         }
         else
         {
-            echo '<td><input type="text" style="width:80px"></td>';
+            echo '<td><input type="text" style="width:80px" disabled></td>';
         } 
         if(empty($row['name']) || empty($row['enroll_no']) || empty($row['attend1']) || empty($row['attend2']) ||empty($row['attend3']) || empty($row['attend4']) || empty($row['ptt1']) || empty($row['ptt2']) || empty($row['pst']) || empty($row['m_result']))
         {
-            echo '<td><a href="updateStudent.php?enroll_no='.$row["enroll_no"].'"><p class="btn btn-primary">Update</p></a></td>';
+            echo '<td><a href="profile.php?enroll_no='.$row["enroll_no"].'"><p class="btn btn-primary">Update</p></a></td>';
         }
     }//end of while loop
 ?>
