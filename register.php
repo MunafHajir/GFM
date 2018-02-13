@@ -1,7 +1,7 @@
 ﻿<?php
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-$conn = mysqli_connect("localhost","root","root","GFM");
+$con = mysqli_connect("localhost","root","root","GFM");
 if($_POST){
 $name = $_POST['name'];
 $enroll = $_POST['enroll'];
@@ -12,7 +12,7 @@ $cor= $_POST['cordinator'];
 $gfm = $_POST['gfm'];
 $password= md5($_POST['password']);
 $query="insert into student(name,enroll_no,unique_id,shift,dept,class_coordinator,gfm,password) values('$name','$enroll','$unique','$shift','$dept','$cor','$gfm','$password')";
-mysqli_query($conn,$query);
+mysqli_query($con,$query);
 
 }
 ?>
@@ -95,7 +95,7 @@ mysqli_query($conn,$query);
                                 <select name="cordinator" id="loginrole" class="form-control" required> 
                                 <?php
                     $sql = "select * from validation where type='coordinator'"; 
-                                $result = mysqli_query($conn,$sql);
+                                $result = mysqli_query($con,$sql);
                                 while($row = mysqli_fetch_array($result))
                                 {
                                     echo '<option value="'.$row['username'].'">'.$row['username'].'</option>';
@@ -110,7 +110,7 @@ mysqli_query($conn,$query);
                                 <select name="gfm" id="loginrole" class="form-control" required> 
                                 <?php
                     $sql = "select * from validation where type='gfm'"; 
-                                $result = mysqli_query($conn,$sql);
+                                $result = mysqli_query($con,$sql);
                                 while($row = mysqli_fetch_array($result))
                                 {
                                     echo '<option value="'.$row['username'].'">'.$row['username'].'</option>';
