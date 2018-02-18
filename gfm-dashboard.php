@@ -4,6 +4,8 @@
     {
         header("Location:index.php");
     }
+    require_once('connection.php');
+    $gfm = $_SESSION['user'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,16 +48,19 @@
                     <ul>
                         <li class="label">Main</li>
                         <li class="active"><a class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard</a>
-                    <div class="logo"><a href="index.html"><!-- <img src="assets/images/logo.png" alt="" /> --><span>WELCOME</span></a></div>
-                    <ul>
-                        <li class="label">Main</li>
-                        <li class="active"><a class="sidebar-sub-toggle"><i class="ti-home"></i> Dashboard</a>
+
+
                         </li>
+                        <li><a href="index.html"><i class="ti-close"></i>LOGOUT</a></li>    
 
                         
                 </div>
+
+                
             </div>
+            
         </div>
+
         <!-- /# sidebar -->
 
 
@@ -85,27 +90,7 @@
         <div class="main">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-8 p-r-0 title-margin-right">
-                        <div class="page-header">
-                            <div class="page-title">
-                                <h1>Hello, <span>Welcome Here</span></h1>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /# column -->
-                    <div class="col-lg-4 p-l-0 title-margin-left">
-                        <div class="page-header">
-                            <div class="page-title">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Login</a></li>
-                                    <li class="breadcrumb-item active">Dashboard</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /# column -->
-                </div>
-                <!-- /# row -->
+              
                 <section id="main-content">
                     <div class="row">
                         <div class="col-lg-12">
@@ -120,7 +105,7 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>Id</th>
+                                                    
                                                     <th>Name</th>
                                                     <th>Enrollment No</th>
                                                     <th>Attendance 1</th>
@@ -131,107 +116,31 @@
                                                     <th>PTT 2</th>
                                                     <th>PST</th>
                                                     <th>MSBTE RESULT</th>
-                                                    <th>Status</th>
+                                                    
                                                     
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-<?php
-    require_once('connection.php');
-    $gfm = $_SESSION['user'];
-    $sql = "select * from student where gfm='$gfm'";
-    $results = mysqli_query($con,$sql) or die(mysqli_error($con));
-    while($row = mysqli_fetch_array($results))
-    {
-        echo "<td>".$row['id']."</td>";
-        if(!empty($row['name']))
-        {
-            echo "<td class='text-center'>".$row['name']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px" disabled></td>';
-        }
-        if(!empty($row['enroll_no']))
-        {
-            echo "<td class='text-center'>".$row['enroll_no']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px" disabled></td>';
-        }
-        if(!empty($row['attend1']))
-        {
-            echo "<td class='text-center'>".$row['attend1']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px" disabled></td>';
-        }
-        if(!empty($row['attend2']))
-        {
-            echo "<td class='text-center'>".$row['attend2']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px" disabled></td>';
-        }        
-        if(!empty($row['attend3']))
-        {
-            echo "<td class='text-center'>".$row['attend3']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px" disabled></td>';
-        }        
-        if(!empty($row['attend4']))
-        {
-            echo "<td class='text-center'>".$row['attend4']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px" disabled></td>';
-        }        
+                                                <?php
+                                                        $sql = "select * from student where gfm='$gfm'";
+                                                        $results = mysqli_query($con,$sql) or die(mysqli_error($con));
+                                                        while($row = mysqli_fetch_array($results))
+                                                        {
+                                                            echo '<tr>
+                                                            <td><a href = "profile.php?enroll_no='.$row['enroll_no'].'">'.$row['name'].'</a></td>
+                                                            <td>'.$row['enroll_no'].'</td>
+                                                            <td>'.$row['attend1'].'</td>
+                                                            <td>'.$row['attend2'].'</td>
+                                                            <td>'.$row['attend3'].'</td>
+                                                            <td>'.$row['attend4'].'</td>
+                                                            <td>'.$row['ptt1'].'</td>
+                                                            <td>'.$row['ptt2'].'</td>
+                                                            <td>'.$row['pst'].'</td>
+                                                            <td>'.$row['m_result'].'</td>
+                                                        </tr>';
+                                                        }
+                                                ?>
 
-        if(!empty($row['ptt1']))
-        {
-            echo "<td class='text-center'>".$row['ptt1']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px" disabled></td>';
-        }        
-        if(!empty($row['ptt2']))
-        {
-            echo "<td class='text-center'>".$row['ptt2']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px" disabled></td>';
-        }      
-        if(!empty($row['pst']))
-        {
-            echo "<td class='text-center'>".$row['pst']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px" disabled></td>';
-        }      
-        if(!empty($row['m_result']))
-        {
-            echo "<td class='text-center'>".$row['m_result']."</td>";
-        }
-        else
-        {
-            echo '<td><input type="text" style="width:80px" disabled></td>';
-        } 
-        if(empty($row['name']) || empty($row['enroll_no']) || empty($row['attend1']) || empty($row['attend2']) ||empty($row['attend3']) || empty($row['attend4']) || empty($row['ptt1']) || empty($row['ptt2']) || empty($row['pst']) || empty($row['m_result']))
-        {
-            echo '<td><a href="profile.php?enroll_no='.$row["enroll_no"].'"><p class="btn btn-primary">Update</p></a></td>';
-        }
-    }//end of while loop
-?>
                                             </tbody>
                                         </table>
                                     </div>

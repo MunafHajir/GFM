@@ -1,3 +1,10 @@
+<?php
+
+			session_start();
+            require_once('connection.php');
+            $name =$_SESSION['user']; 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,7 +99,7 @@
                     <div class="col-lg-8 p-r-0 title-margin-right">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>Hello, <span>Welcome Here</span></h1>
+                                <h1>Hello, <span>Welcome</span><?php echo $name;?> </h1>
                             </div>
                         </div>
                     </div>

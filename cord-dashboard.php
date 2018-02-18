@@ -2,7 +2,7 @@
 session_start();
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-
+$cordinator = $_GET['cordinator'];
 ?>
 
 
@@ -132,7 +132,7 @@ ini_set("display_errors", 1);
                                             <tbody>
                                         <?php
                                         require_once('connection.php');
-                                        $sql = "SELECT * from student";
+                                        $sql = "SELECT * from student where class_coordinator = '$cordinator'";
                                         $result= mysqli_query($con,$sql);
                                         while ($row = mysqli_fetch_array($result)) {
                                         echo    '<tr>

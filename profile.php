@@ -7,6 +7,7 @@
     $sql = "select * from student where enroll_no='$enroll_no'";
     $results = mysqli_query($con,$sql) or die(mysqli_error($con));
     $row = mysqli_fetch_array($results);
+    
   }
   else
   {
@@ -80,7 +81,7 @@
             <div class="col-lg-8 p-r-0 title-margin-right">
               <div class="page-header">
                 <div class="page-title">
-                  <h1>Hello, <span>Welcome Here</span></h1>
+                  <h1>Hello, <span>Welcome <?= $row['name'] ?></span></h1>
                 </div>
               </div>
             </div>
@@ -121,8 +122,8 @@
                             <div class="tab-content">
                               <div role="tabpanel" class="tab-pane active" id="1">
                                 <div class="contact-information">
-                                  <h4>Class Coordinator: <span><?php echo $row['class_cordinator'];?></span></h4>
-                 <input type="hidden" name="class_cordinator" value="<?php echo $row['class_cordinator'];?>">
+                                  <h4>Class Coordinator: <span><?php echo $row['class_coordinator'];?></span></h4>
+                 <input type="hidden" name="class_coordinator" value="<?php echo $row['class_coordinator'];?>">
                                   <h4>GFM: <span><?php echo $row['gfm'];?></span></h4>
                  <input type="hidden" name="gfm" value="<?php echo $row['gfm'];?>">
 
@@ -146,10 +147,10 @@
                                     <span class="contact-title">Attendance 4:</span>
                                     <input type="text" name="attend4" value="<?php echo $row['attend4'];?>">
                                   </div>
-                                  <div class="address-content">
+                                  <!-- <div class="address-content">
                                     <span class="contact-title">Overall:</span>
                                     <input type="text" name="overall" value="<?php echo $row['overall'];?>">
-                                  </div>
+                                  </div> -->
                                   <div class="address-content">
                                     <span class="contact-title">PTT 1:</span>
                                     <input type="text" name="ptt1" value="<?php echo $row['ptt1'];?>">

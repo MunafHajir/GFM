@@ -1,7 +1,7 @@
 ﻿<?php
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-$con = mysqli_connect("localhost","root","root","GFM");
+require_once('connection.php');
 if($_POST){
 $name = $_POST['name'];
 $enroll = $_POST['enroll'];
@@ -94,7 +94,7 @@ mysqli_query($con,$query);
                                 <label>Co-Ordinator:</label>
                                 <select name="cordinator" id="loginrole" class="form-control" required> 
                                 <?php
-                    $sql = "select * from validation where type='coordinator'"; 
+                    $sql = "select * from validation where type='cordinator'"; 
                                 $result = mysqli_query($con,$sql);
                                 while($row = mysqli_fetch_array($result))
                                 {

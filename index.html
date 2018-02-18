@@ -26,6 +26,19 @@
     <link href="assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/lib/helper.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+
+
+    <script text="javascript">
+        function changeFunc(value){
+            if (value == "Student"){
+                document.getElementById('username').placeholder = "Enrollment No";
+            }
+            else if (value == "cordinator" || value =="gfm"){
+                document.getElementById('username').placeholder = "Enter Username";
+            }
+        }
+    
+    </script>
 </head>
 
 <body class="bg-primary">
@@ -40,11 +53,11 @@
                             <form action="loginProcess.php" method="post">                                
                                 <div class="form-group">
                                     <label>Username:</label>
-                                    <input type="text" class="form-control" placeholder="Username" name="username" required="required">
+                                    <input type="text" id = "username" class="form-control" placeholder="Enrollment No" name="username" required="required">
                                 </div>
                                 <div class="form-group">
                                     <label>Login as:</label>
-                                    <select id="loginrole" class="form-control" name="loginrole">
+                                    <select id="loginrole" class="form-control" name="loginrole" onchange="changeFunc(value);">
                                         <option value="Student">Student</option>
                                         <option value="cordinator">Class Coordinator</option>
                                         <option value="gfm">GFM</option>
