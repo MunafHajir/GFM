@@ -11,9 +11,17 @@ $dept = $_POST['dept'];
 $cor= $_POST['cordinator'];
 $gfm = $_POST['gfm'];
 $password= md5($_POST['password']);
-$query="insert into student(name,enroll_no,unique_id,shift,dept,class_coordinator,gfm,password) values('$name','$enroll','$unique','$shift','$dept','$cor','$gfm','$password')";
-mysqli_query($con,$query);
-
+$sql = "select enroll_no from student where enroll_no='$enroll'";
+$results = mysqli_query($con,$sql);
+if(mysqli_num_rows($results)==0)
+{
+    $query="insert into student(name,enroll_no,unique_id,shift,dept,class_coordinator,gfm,password) values('$name','$enroll','$unique','$shift','$dept','$cor','$gfm','$password')";
+    mysqli_query($con,$query);
+}
+else
+{
+    $response = "Enrollment No Already Exists";
+}
 }
 ?>
 
@@ -63,6 +71,14 @@ mysqli_query($con,$query);
                                 </div>
 
                                 <div class="form-group">
+                                <h3 style="color:red;">
+                                <?php 
+                                    if(!empty($response))
+                                    {
+                                        echo $response;
+                                    }
+                                    ?>
+                                </h3>
                                     <label>Enrollment No.:</label>
                                     <input type="text" class="form-control" placeholder="Enrollment No" required pattern="[0-9]+" title="Please provide proper length" maxlength="10" minlength="10" name="enroll">
                                 </div>

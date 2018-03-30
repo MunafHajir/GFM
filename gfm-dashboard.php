@@ -114,8 +114,8 @@
                                                     <th>Attendance 4</th>
                                                     <th>PTT 1</th>
                                                     <th>PTT 2</th>
-                                                    <th>PST</th>
-                                                    <th>MSBTE RESULT</th>
+                                              
+            
                                                     
                                                     
                                                 </tr>
@@ -135,8 +135,8 @@
                                                             <td>'.$row['attend4'].'</td>
                                                             <td>'.$row['ptt1'].'</td>
                                                             <td>'.$row['ptt2'].'</td>
-                                                            <td>'.$row['pst'].'</td>
-                                                            <td>'.$row['m_result'].'</td>
+                                                      
+                                                        
                                                         </tr>';
                                                         }
                                                 ?>

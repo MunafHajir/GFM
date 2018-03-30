@@ -112,7 +112,7 @@ $cordinator = $_GET['cordinator'];
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-title">
-                                    <h4>Student Details </h4>
+                                    <h4>GFM Details </h4>
                                     
                                 </div>
                                 <div class="card-body">
@@ -121,11 +121,10 @@ $cordinator = $_GET['cordinator'];
                                             <thead>
                                                 <tr>
                                                     <th>Name</th>
-                                                    <th>Enrollment No</th>
-                                                    <th>Overall</th>
-                                                    <th>PTT 1</th>
-                                                    <th>PTT 2</th>
-                                                    <th>PST</th>
+                                                    <th>Class</th>
+                                                    <th>Batch</th>
+                                                   
+                                                
                                                     
                                                 </tr>
                                             </thead>
@@ -141,7 +140,7 @@ $cordinator = $_GET['cordinator'];
                                                     <td>'.$row['overall'].'</td>
                                                     <td>'.$row['ptt1'].'</td>
                                                     <td>'.$row['ptt2'].'</td>
-                                                    <td>'.$row['pst'].'</td>
+                                            
                                                 </tr>';
                                         }
                                         ?>

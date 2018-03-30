@@ -117,7 +117,7 @@
                           <input type="hidden" name="enroll_no" value="<?php echo $row['enroll_no'];?>">
                           <div class="custom-tab user-profile-tab">
                             <ul class="nav nav-tabs" role="tablist">
-                              <li role="presentation" class="active"><a href="#1" aria-controls="1" role="tab" data-toggle="tab">About</a></li>
+                              <li role="presentation" class="active"><a href="#1" aria-controls="1" role="tab" data-toggle="tab"></a></li>
                             </ul>
                             <div class="tab-content">
                               <div role="tabpanel" class="tab-pane active" id="1">
@@ -128,41 +128,91 @@
                  <input type="hidden" name="gfm" value="<?php echo $row['gfm'];?>">
 
                                   <div class="phone-content">
-                                    <span class="contact-title">Student Details:</span>
-                                    
+                                    <span class="contact-title">Student Details::</span>
+                                    <br>
+                                    <br>
                                   </div>
+                                   <span class="contact-title">Attendance::</span>
                                   <div class="address-content">
-                                    <span class="contact-title">Attendance 1:</span>
+                                    <span class="contact-title">january</span>
                                     <input type="text" name="attend1" value="<?php echo $row['attend1'];?>">
                                   </div>
                                   <div class="address-content">
-                                    <span class="contact-title">Attendance 2:</span>
+                                    <span class="contact-title">february:</span>
                                     <input type="text" name="attend2" value="<?php echo $row['attend2'];?>">
                                   </div>
                                   <div class="address-content">
-                                    <span class="contact-title">Attendance 3:</span>
+                                    <span class="contact-title">march:</span>
                                     <input type="text" name="attend3" value="<?php echo $row['attend3'];?>">
                                   </div>
                                   <div class="address-content">
-                                    <span class="contact-title">Attendance 4:</span>
+                                    <span class="contact-title">april:</span>
                                     <input type="text" name="attend4" value="<?php echo $row['attend4'];?>">
                                   </div>
+                                  <br>
+                                  <br>
                                   <!-- <div class="address-content">
                                     <span class="contact-title">Overall:</span>
                                     <input type="text" name="overall" value="<?php echo $row['overall'];?>">
                                   </div> -->
+                                   <span class="contact-title">PTT1 marks::</span>
                                   <div class="address-content">
-                                    <span class="contact-title">PTT 1:</span>
+                                    <br>
+                                    <span class="contact-title">AMI:</span>
                                     <input type="text" name="ptt1" value="<?php echo $row['ptt1'];?>">
                                   </div>
                                   <div class="address-content">
-                                    <span class="contact-title">PTT 2:</span>
+                                    <span class="contact-title">STE:</span>
                                     <input type="text" name="ptt2" value="<?php echo $row['ptt2'];?>">
                                   </div>
                                   <div class="address-content">
-                                    <span class="contact-title">PST:</span>
+                                    <span class="contact-title">AJP:</span>
                                     <input type="text" name="pst" value="<?php echo $row['pst'];?>">
                                   </div>
+                                  <div class="address-content">
+                                    <span class="contact-title">MAN:</span>
+                                    <input type="text" name="pst" value="<?php echo $row['pst'];?>">
+                                  </div>
+                                  <br>
+                                  <br>
+                                  <span class="contact-title">PTT2 marks::</span>
+                                  <div class="address-content">
+                                    <br>
+                                    <span class="contact-title">AMI:</span>
+                                    <input type="text" name="ptt1" value="<?php echo $row['ptt1'];?>">
+                                  </div>
+                                  <div class="address-content">
+                                    <span class="contact-title">STE:</span>
+                                    <input type="text" name="ptt2" value="<?php echo $row['ptt2'];?>">
+                                  </div>
+                                  <div class="address-content">
+                                    <span class="contact-title">AJP:</span>
+                                    <input type="text" name="pst" value="<?php echo $row['pst'];?>">
+                                  </div>
+                                  <div class="address-content">
+                                    <span class="contact-title">MAN:</span>
+                                    <input type="text" name="pst" value="<?php echo $row['pst'];?>">
+                                  </div>
+                                  <br>
+                                  <br>
+                                  <span class="contact-title">GFM Meetings::</span>
+                                  <div class="address-content">
+                                    <br>
+                                    <br>
+                                    <div class="address-content">
+                                    <span class="contact-title">Date of meeting:</span>
+                                    <input type="text" name="pst" value="<?php echo $row['pst'];?>">
+                                  </div>
+                                  <div class="address-content">
+                                    <span class="contact-title">Agenda of meeting:</span>
+                                    <input type="text" name="pst" value="<?php echo $row['pst'];?>">
+                                  </div>
+                                    <div class="address-content">
+                                    <span class="contact-title">Minutes of meeting:</span>
+                                    <input type="text" name="pst" value="<?php echo $row['pst'];?>">
+                                  </div>
+
+                                  
                                   
                                   <div class="user-send-message">
 <!--                                     <button class="btn btn-primary btn-addon" type="button"><i class="ti-share-alt"></i>Submit</button> -->
